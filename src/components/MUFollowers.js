@@ -1,10 +1,17 @@
 import React from "react";
 import FollowerCard from "./FollowerCard";
 
-function MUFollowers(props) {
+function MUFollowers({ followers }) {
   return (
     <div>
-      {/* take array of followers and map over them, assigning a FollowerCard to each */}
+      {followers.map(follower => (
+        <FollowerCard
+          key={follower.id}
+          name={follower.name}
+          login={follower.login}
+          avatar_url={follower.avatar_url}
+        />
+      ))}
     </div>
   );
 }

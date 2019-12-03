@@ -18,13 +18,20 @@ class App extends React.Component {
       this.setState({ mainUser: response.data });
       console.log(this.state.mainUser);
     });
+
+    axios
+      .get("https://api.github.com/users/bamfranceschi/followers")
+      .then(response => {
+        this.setState({ followers: response.data });
+        console.log(response);
+      });
   }
 
   render() {
     return (
       <div>
         <MainUser mainUser={this.state.mainUser} />
-        <MUFollowers />
+        <MUFollowers followers={this.state.followers} />
       </div>
     );
   }
