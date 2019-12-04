@@ -3,6 +3,15 @@ import "./App.css";
 import MainUser from "./components/MainUser";
 import MUFollowers from "./components/MUFollowers";
 import axios from "axios";
+import styled from "styled-components";
+import "./App.css";
+
+const FollowersHeadline = styled.h2`
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+`;
 
 class App extends React.Component {
   constructor() {
@@ -31,6 +40,9 @@ class App extends React.Component {
     return (
       <div>
         <MainUser mainUser={this.state.mainUser} />
+        <FollowersHeadline>
+          {this.state.mainUser.name}'s Followers
+        </FollowersHeadline>
         <MUFollowers followers={this.state.followers} />
       </div>
     );
